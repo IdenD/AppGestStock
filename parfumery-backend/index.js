@@ -20,7 +20,9 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 
-
+app.get("/", (req, res) => {
+  return res.send("hello world") })
+  
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 
