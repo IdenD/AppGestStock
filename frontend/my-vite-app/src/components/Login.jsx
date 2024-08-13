@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+      const response = await axios.post('https://app-gest-stock-api.vercel.app/api/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) {

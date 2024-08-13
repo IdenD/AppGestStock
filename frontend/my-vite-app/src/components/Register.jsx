@@ -13,7 +13,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, password, email });
+      await axios.post('https://app-gest-stock-api.vercel.app/api/auth/register', { username, password, email });
       toast.success('User registered successfully');
       navigate('/login');
     } catch (err) {

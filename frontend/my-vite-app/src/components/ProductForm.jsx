@@ -16,7 +16,7 @@ const ProductForm = () => {
       const fetchProduct = async () => {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/api/products/${id}`, {
+          const response = await axios.get(`https://app-gest-stock-api.vercel.app/api/products/${id}`, {
             headers: { 'x-auth-token': token },
           });
           const product = response.data;
@@ -42,9 +42,9 @@ const ProductForm = () => {
         },
       };
       if (id) {
-        await axios.put(`http://localhost:5000/api/products/${id}`, { name, price, quantity }, config);
+        await axios.put(`https://app-gest-stock-api.vercel.app/api/products/${id}`, { name, price, quantity }, config);
       } else {
-        await axios.post('http://localhost:5000/api/products', { name, price, quantity }, config);
+        await axios.post('https://app-gest-stock-api.vercel.app/api/products', { name, price, quantity }, config);
         toast.success('Success');
       }
       navigate('/dashboard');

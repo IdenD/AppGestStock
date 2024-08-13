@@ -12,7 +12,7 @@ const Dashboard = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/products', {
+        const response = await axios.get('https://app-gest-stock-api.vercel.app/api/products', {
           headers: { 'x-auth-token': token },
         });
         setProducts(response.data);
@@ -26,7 +26,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://app-gest-stock-api.vercel.app/api/products/${id}`, {
         headers: { 'x-auth-token': token },
       });
       setProducts(products.filter(product => product._id !== id));

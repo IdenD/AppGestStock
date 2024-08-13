@@ -11,7 +11,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products', {
+        const response = await axios.get('https://app-gest-stock-api.vercel.app/api/products', {
           headers: { 'x-auth-token': localStorage.getItem('token') }
         });
         setProducts(response.data);
@@ -25,7 +25,7 @@ const ProductList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://app-gest-stock-api.vercel.app/api/products/${id}`, {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       setProducts(products.filter(product => product._id !== id));
@@ -37,7 +37,7 @@ const ProductList = () => {
   const handleEdit = async (id) => {
     if (editProduct) {
       try {
-        await axios.put(`http://localhost:5000/api/products/${id}`, productData, {
+        await axios.put(`https://app-gest-stock-api.vercel.app/api/products/${id}`, productData, {
           headers: { 'x-auth-token': localStorage.getItem('token') }
         });
         window.location.reload();
